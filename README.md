@@ -17,3 +17,21 @@
 
 # 设计方案
 
+> chat = present(model([format(fetch(datasource)), format(fetch(datasource, query))]), chatConfig)
+
+1. datasource 数据源
+2. fetch 从数据源获取数据
+3. format 对获取到的数据进行处理
+4. model 将多数据源组合成为model
+5. present 绘制
+6. chat 各种类型图标
+
+变量配置： 
+
+1. model 部分字段可以转换成为查询条件 query
+2. 需要配置如何展示，chatConfig，比如同样的数据既可以展示成为柱状图，也可以展示成为折线图
+
+核心对象：
+1. model。通过对 model 字段的配置，来生成查询条件区域，来生成 query 对象，来生成具体类型的 chat。
+2. chat。 不同类型的 chat 需要不同的 config 配置。chat 类型是预先定义好的若干种。
+
